@@ -41,14 +41,6 @@ class Watcher {
 		$st->data_seek(0);
 		return $st;
 	}
-	private function getTables($query) {
-		$st = $this->_query("EXPLAIN " . $query);
-		$tables = [];
-		while ($row = $st->fetch_assoc()) {
-			array_push($tables, $row["table"]);
-		}
-		return $tables;
-	}
 	private function outdated() {
 		$st = $this->_query($this->query);
 		$s = "";
